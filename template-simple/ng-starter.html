@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>NG-Starter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    </head>
+
+    <body ng-controller="MainCtrl">
+        <p class="demo">{{welcome}} ({{counter}})</p>
+    </body>
+
+    <script>
+        angular
+          // create angular application, and bind it to 'ng-app'
+          .module('app',[])
+          // initial config (placeholder only)
+          .run(($rootScope, $window, $location) => {})
+          // main controller binding
+          .controller('MainCtrl', ($scope, $interval) => {
+              angular.extend($scope, {
+                  welcome: 'This is the initial template content!',
+                  counter: 0
+              });
+              $interval(() => $scope.counter++, 1000, 10);
+          });
+    </script>
+
+    <style>
+        .demo {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+
+</html>
