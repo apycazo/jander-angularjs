@@ -1,0 +1,14 @@
+{
+    "name": "starter-angularjs",
+    "version": "0.0.1",
+    "description": "An example AngularJS project",
+    "dependencies": {
+        "jquery": "3.x",
+        "angular": "1.x",
+        "bootstrap": "3.x",
+        "font-awesome": "4.x"
+    },
+    "scripts": {
+        "start": "http-server ."
+    }
+}

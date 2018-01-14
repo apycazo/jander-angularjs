@@ -1,0 +1,31 @@
+/* ================================== */
+/* Utilities */
+/* ================================== */
+.show-pointer {
+    cursor: pointer;
+}
+/* Makes an input look more like a button (in terms of size) */
+.input-big {
+    padding: 6px 12px;
+    border: 2px solid #337ab7;
+}
+
+.navbar-header .fa {
+    color: #337ab7;
+}
+
+/* ================================== */
+/* Makes the navbar and panels square */
+/* ================================== */
+.navbar {
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+.panel {
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+.panel-heading {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
