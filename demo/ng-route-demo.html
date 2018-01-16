@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-route.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-route.min.js"></script>
   <title>AngularJS routing</title>
 </head>
 <body ng-app="app">
@@ -12,6 +12,7 @@
   <div>
     <h3>Angular routing example</h3>
     <a href="#!first">First</a>
+    <a href="#!first/myId">First with param</a>
     <a href="#!second">Second</a>
   </div>
 
@@ -23,7 +24,7 @@
 
   <!-- inline html content for the example -->
   <script type="text/ng-template" id="firstPage.html">
-    <h2>Controller ID (1): {{value}}</h2>
+    <h2>Controller ID (1): {{value}} (id? {{id}})</h2>
   </script>
   <script type="text/ng-template" id="secondPage.html">
     <h2>Controller ID (2): {{value}}</h2>
@@ -38,14 +39,19 @@
           controller: "FirstCtrl",
           templateUrl: "firstPage.html"
         })
+        .when("/first/:id", {
+          controller: "FirstCtrl",
+          templateUrl: "firstPage.html"
+        })
         .when("/second", {
           controller: "SecondCtrl",
           template: '<h2>Controller ID (2): {{value}}</h2>'
         })
         .otherwise({ redirectTo: "/first" });
     })
-    .controller('FirstCtrl', function FirstCtrl ($scope) {
+    .controller('FirstCtrl', function FirstCtrl ($scope, $routeParams) {
       $scope.value = 'FirstController';
+      $scope.id = $routeParams.id ? $routeParams.id : 'unknown';
     })
     .controller('SecondCtrl', function SecondCtrl ($scope) {
       $scope.value = 'SecondController';
